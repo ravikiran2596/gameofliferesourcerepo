@@ -20,6 +20,9 @@ parameters:
 - name: PathtoPublish
   type: string
   default: gameoflife-web/target/gameoflife.war
+- name: downloadartifact
+  type: string
+  default: '$(System.ArtifactsDirectory)'       
 
 
   
@@ -38,4 +41,9 @@ steps:
     PathtoPublish: gameoflife-web/target/gameoflife.war
     ArtifactName: 'drop'
     publishLocation: 'container'
-        
+
+- task: DownloadPipelineArtifact@1
+  inputs:
+    buildType: 'current'
+    artifactName: 'drop'
+    targetPath: '$(System.ArtifactsDirectory)'        
