@@ -16,7 +16,11 @@ parameters:
   default: '1.8'
 - name: authenticateMavenFeed
   type: boolean
-  default: false  
+  default: false
+- name: PathtoPublish
+  type: string
+  default: gameoflife-web/target/gameoflife.war
+
 
   
 steps:
